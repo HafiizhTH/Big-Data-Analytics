@@ -24,4 +24,4 @@ I recommend adding some data that is not yet available in the database to comple
 - besides that, we can also predict the demand for location 1A to the surrounding locations from the need for drugs in certain locations at certain times. for example, it is rainy season in area A so that the need for drugs around the area is related to flu or fever drugs. and we can allocate drug stocks to certain distributors / branches against the demand prediction.  
 
 2. Weather data
-- to see the correlation between drug demand and weather in the areaemand and weather in the area
+- to see the correlation between drug demand and weather in the area demand and weather in the area
