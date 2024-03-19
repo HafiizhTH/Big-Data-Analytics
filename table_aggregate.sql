@@ -1,53 +1,53 @@
 ﻿-- Total penjualan per produk
-CREATE TABLE `total_penjualan_per_produk`AS
+CREATE TABLE total_penjualan_per_produkAS
   SELECT
-    DATE_FORMAT(`tanggal`, '%Y-%m-%d') AS 'tanggal',
-    `id_barang`,
-    `nama_barang`,
-    `unit`,
-    `harga`,
-    `jumlah_barang`,
-    SUM(`harga` * `jumlah_barang`) AS 'total_penjualan'
+    DATE_FORMAT(tanggal, '%Y-%m-%d') AS 'tanggal',
+    id_barang,
+    nama_barang,
+    unit,
+    harga,
+    jumlah_barang,
+    SUM(harga * jumlah_barang) AS 'total_penjualan'
   FROM
-    `data_mart`
+    data_mart
   WHERE
-    DATE_FORMAT(`tanggal`, '%Y-%m-%d') BETWEEN '2022-01-01' AND '2022-01-31'
+    DATE_FORMAT(tanggal, '%Y-%m-%d') BETWEEN '2022-01-01' AND '2022-01-31'
   GROUP BY
-    `tanggal`, `id_barang`;
+    tanggal, id_barang;
 	
 		
 				
 -- Jumlah transaksi per pelanggan
-CREATE TABLE `jumlah_transaksi_per_pelanggan`AS
+CREATE TABLE jumlah_transaksi_per_pelangganAS
   SELECT
-    DATE_FORMAT(`tanggal`, '%Y-%m-%d') AS 'tanggal',
-    `id_customer`,
-    `nama_barang`,
-    `cabang_sales`,
+    DATE_FORMAT(tanggal, '%Y-%m-%d') AS 'tanggal',
+    id_customer,
+    nama_barang,
+    cabang_sales,
     COUNT(*) AS 'jumlah_transaksi'
   FROM
-    `data_mart`
+    data_mart
   WHERE
-    DATE_FORMAT(`tanggal`, '%Y-%m-%d') BETWEEN '2022-04-01' AND '2022-04-31'
+    DATE_FORMAT(tanggal, '%Y-%m-%d') BETWEEN '2022-04-01' AND '2022-04-31'
   GROUP BY
-    `tanggal`, `id_customer`;
+    tanggal, id_customer;
 		
 		
 		
 -- Pendapatan per bulan
-CREATE TABLE `pendapatan_per_bulan`AS
+CREATE TABLE pendapatan_per_bulanAS
   SELECT
-    DATE_FORMAT(`tanggal`, '%Y-%m-%d') AS 'tanggal',
-    `id_barang`,
-    `nama_barang`,
-    `unit`,
-    `harga`,
-    `mata_uang`,
-    `jumlah_barang`,
-    SUM(`harga` * `jumlah_barang`) AS 'total_pendapatan'
+    DATE_FORMAT(tanggal, '%Y-%m-%d') AS 'tanggal',
+    id_barang,
+    nama_barang,
+    unit,
+    harga,
+    mata_uang,
+    jumlah_barang,
+    SUM(harga * jumlah_barang) AS 'total_pendapatan'
   FROM
-    `data_mart`
+    data_mart
   WHERE
-    DATE_FORMAT(`tanggal`, '%Y-%m-%d') BETWEEN '2022-06-01' AND '2022-06-31'
+    DATE_FORMAT(tanggal, '%Y-%m-%d') BETWEEN '2022-06-01' AND '2022-06-31'
   GROUP BY
-    `tanggal`, `nama_barang`;
+    tanggal, nama_barang;
